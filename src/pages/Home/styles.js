@@ -7,8 +7,9 @@ export const styles = StyleSheet.create({
     backgroundColor: '#121015',
     paddingHorizontal: 30,
     paddingVertical: 70,
+    height: 100,
   },
-  texto: {
+  title: {
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 24,
@@ -31,6 +32,18 @@ export const styles = StyleSheet.create({
   buttonText: {
     color: '#FFF',
     fontSize: 17,
+    fontWeight: 'bold'
+  },
+  buttonSkill: {
+    backgroundColor: '#1F1e25',
+    padding: 15,
+    borderRadius: 50,
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  textSkill: {
+    color: '#FFF',
+    fontSize: 22,
     fontWeight: 'bold'
   },
 })
