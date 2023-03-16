@@ -1,6 +1,9 @@
+//pagina principal
 import { View, Text, TextInput, TouchableOpacity, } from "react-native";
 import { styles } from "./styles";
 import { useState } from "react";
+import { Button } from "../../components/Button/Button";
+import { SkillCard } from "../../components/SkillCard/SkillCard";
 
 export function Home() {
 
@@ -23,9 +26,9 @@ export function Home() {
         onChangeText={setNewSkill}
       />
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={handleAddNewSkill}>
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
+      <Button onPress={handleAddNewSkill}
+        //passa para o componente Button a funcao handleAddNewSkill
+      />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>
         My Skills
@@ -33,11 +36,9 @@ export function Home() {
 
       {
         mySkills.map(skill => (  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill
-          <TouchableOpacity style={styles.buttonSkill} key={skill}>
-            <Text style={styles.textSkill}>
-              {skill}
-            </Text>
-          </TouchableOpacity>
+          <SkillCard skill={skill} 
+            //passa para o componente SkillCard os valores recebidos de skill
+          />
         ))
       }
     </View>

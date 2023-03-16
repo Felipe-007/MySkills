@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native"
 import { Platform } from "react-native"
 
 export const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     backgroundColor: '#121015',
     paddingHorizontal: 30,
@@ -21,29 +21,5 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     padding: Platform.OS === 'ios' ? 15 : 10,  //caso seja ios sera de 15, se for android será de 10
     borderRadius: 7,
-  },
-  button: {
-    backgroundColor: '#A370F7',
-    padding: 15,
-    borderRadius: 7,
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  buttonText: {
-    color: '#FFF',
-    fontSize: 17,
-    fontWeight: 'bold'
-  },
-  buttonSkill: {
-    backgroundColor: '#1F1e25',
-    padding: 15,
-    borderRadius: 50,
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  textSkill: {
-    color: '#FFF',
-    fontSize: 22,
-    fontWeight: 'bold'
-  },
+  },  
 })
