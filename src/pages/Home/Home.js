@@ -1,5 +1,5 @@
 //pagina principal
-import { View, Text, TextInput, TouchableOpacity, } from "react-native";
+import { View, Text, TextInput, FlatList } from "react-native";
 import { styles } from "./styles";
 import { useState } from "react";
 import { Button } from "../../components/Button/Button";
@@ -27,20 +27,20 @@ export function Home() {
       />
 
       <Button onPress={handleAddNewSkill}
-        //passa para o componente Button a funcao handleAddNewSkill
+      //passa para o componente Button a funcao handleAddNewSkill
       />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>
         My Skills
       </Text>
 
-      {
-        mySkills.map(skill => (  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill
-          <SkillCard skill={skill} 
-            //passa para o componente SkillCard os valores recebidos de skill
-          />
-        ))
-      }
+      <FlatList
+        data={mySkills}
+        keyExtractor={item => item}  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill
+        renderItem={({ item }) => (
+          <SkillCard skill={item} />  //skill={item}=passa para o componente SkillCard os valores recebidos de skill
+        )}
+      />
     </View>
   )
 }
