@@ -1,5 +1,5 @@
 //pagina principal
-import { View, Text, TextInput, FlatList, Alert } from "react-native";
+import { View, Text, TextInput, FlatList, SafeAreaView } from "react-native";
 import { styles } from "./styles";
 import { useState, useEffect } from "react";
 import { Button } from "../../components/Button/Button";
@@ -23,7 +23,7 @@ export function Home() {
     if (currentHour < 12) {
       setGreetins('Bom dia');
     }
-    else if(currentHour >= 12 && currentHour < 18){
+    else if (currentHour >= 12 && currentHour < 18) {
       setGreetins('Boa tarde');
     }
     else {
@@ -32,36 +32,37 @@ export function Home() {
   }, []);  //[]aqui fica a dependencia ex:mySkills ou qualquer outra const
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Bem Vindo, Felipe</Text>
+      <SafeAreaView style={styles.container}>
 
-      <Text style={styles.greetins}>
-        {greetins}
-      </Text>
+        <Text style={styles.title}>Bem Vindo, Felipe</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="New skill"
-        placeholderTextColor="#555"
-        onChangeText={setNewSkill}
-      />
+        <Text style={styles.greetins}>
+          {greetins}
+        </Text>
 
-      <Button onPress={handleAddNewSkill}
-      //passa para o componente Button a funcao handleAddNewSkill
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="New skill"
+          placeholderTextColor="#555"
+          onChangeText={setNewSkill}
+        />
 
-      <Text style={[styles.title, { marginVertical: 50 }]}>
-        My Skills
-      </Text>
+        <Button onPress={handleAddNewSkill}
+        //passa para o componente Button a funcao handleAddNewSkill
+        />
 
-      <FlatList
-        data={mySkills}
-        keyExtractor={item => item}  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill
-        renderItem={({ item }) => (
-          <SkillCard skill={item} />  //skill={item}=passa para o componente SkillCard os valores recebidos de skill
-        )}
-      />
-    </View>
+        <Text style={[styles.title, { marginVertical: 30 }]}>
+          My Skills
+        </Text>
+
+        <FlatList
+          data={mySkills}
+          keyExtractor={item => item}  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill
+          renderItem={({ item }) => (
+            <SkillCard skill={item} />  //skill={item}=passa para o componente SkillCard os valores recebidos de skill
+          )}
+        />
+      </SafeAreaView>
   )
 }
 
