@@ -1,7 +1,7 @@
 //pagina principal
-import { View, Text, TextInput, FlatList } from "react-native";
+import { View, Text, TextInput, FlatList, Alert } from "react-native";
 import { styles } from "./styles";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "../../components/Button/Button";
 import { SkillCard } from "../../components/SkillCard/SkillCard";
 
@@ -9,15 +9,35 @@ export function Home() {
 
   const [newSkill, setNewSkill] = useState('');  //armazena as novas skills
   const [mySkills, setMySkills] = useState([]);  //armazena todas as skills
+  const [greetins, setGreetins] = useState('');
 
   //handle = é uma convensão, para quando a função é disparada por uma interação do usuário
   function handleAddNewSkill() {
     setMySkills(oldState => [...oldState, newSkill])  //oldState = estado anterior, pode ser qualquer nome, setMySkills=pega tudo do ...oldState mais o newSkill
   }
 
+  //será executado assim que abrir o aplicativo
+  useEffect(() => {
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+      setGreetins('Bom dia');
+    }
+    else if(currentHour >= 12 && currentHour < 18){
+      setGreetins('Boa tarde');
+    }
+    else {
+      setGreetins('Boa noite');
+    }
+  }, []);  //[]aqui fica a dependencia ex:mySkills ou qualquer outra const
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bem Vindo, Felipe</Text>
+
+      <Text style={styles.greetins}>
+        {greetins}
+      </Text>
 
       <TextInput
         style={styles.input}

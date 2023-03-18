@@ -21,5 +21,8 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     padding: Platform.OS === 'ios' ? 15 : 10,  //caso seja ios sera de 15, se for android será de 10
     borderRadius: 7,
-  },  
+  },
+  greetins: {
+    color: '#FFF'
+  }
 })
