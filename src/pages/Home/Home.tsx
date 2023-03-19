@@ -45,37 +45,38 @@ export function Home() {
   }, []);  //[]aqui fica a dependencia ex:mySkills ou qualquer outra const
 
   return (
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
-        <Text style={styles.title}>Bem Vindo, Felipe</Text>
+      <Text style={styles.title}>Bem Vindo, Felipe</Text>
 
-        <Text style={styles.greetins}>
-          {greetins}
-        </Text>
+      <Text style={styles.greetins}>
+        {greetins}
+      </Text>
 
-        <TextInput
-          style={styles.input}
-          placeholder="New skill"
-          placeholderTextColor="#555"
-          onChangeText={setNewSkill}
-        />
+      <TextInput
+        style={styles.input}
+        placeholder="New skill"
+        placeholderTextColor="#555"
+        onChangeText={setNewSkill}
+      />
 
-        <Button onPress={handleAddNewSkill}
+      <Button onPress={handleAddNewSkill}
         //passa para o componente Button a funcao handleAddNewSkill
-        />
+        title="Add"  //valor que vem do componente button
+      />
 
-        <Text style={[styles.title, { marginVertical: 30 }]}>
-          My Skills
-        </Text>
+      <Text style={[styles.title, { marginVertical: 30 }]}>
+        My Skills
+      </Text>
 
-        <FlatList
-          data={mySkills}
-          keyExtractor={item => item.id}  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill, item.id=pegando de interface SkillData
-          renderItem={({ item }) => (
-            <SkillCard skill={item.name} />  //skill={item}=passa para o componente SkillCard os valores recebidos de skill
-          )}
-        />
-      </SafeAreaView>
+      <FlatList
+        data={mySkills}
+        keyExtractor={item => item.id}  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill, item.id=pegando de interface SkillData
+        renderItem={({ item }) => (
+          <SkillCard skill={item.name} />  //skill={item}=passa para o componente SkillCard os valores recebidos de skill
+        )}
+      />
+    </SafeAreaView>
   )
 }
 
