@@ -17,6 +17,7 @@ export function Home() {
   const [mySkills, setMySkills] = useState<SkillData[]>([]);  //armazena todas as skills
   const [greetins, setGreetins] = useState('');  //status do dia
 
+  //adiciona
   //handle = é uma convensão, para quando a função é disparada por uma interação do usuário
   function handleAddNewSkill() {
 
@@ -27,6 +28,13 @@ export function Home() {
     }
 
     setMySkills(oldState => [...oldState, data])  //oldState = estado anterior, pode ser qualquer nome, setMySkills=pega tudo do ...oldState mais o newSkill
+  }
+
+  //remove
+  function handleRemoveSkill(id: string) {
+    setMySkills(oldState => oldState.filter(  //percorre todo o oldState
+      skill => skill.id !== id  //devolve somente os ids que forem diferente do id selecionado, assim ira excluir o item selecionado
+    ));
   }
 
   //será executado assim que abrir o aplicativo
@@ -73,7 +81,10 @@ export function Home() {
         data={mySkills}
         keyExtractor={item => item.id}  //percorre toda mySkills, colocando o resultado do handleAddNewSkill em skill, item.id=pegando de interface SkillData
         renderItem={({ item }) => (
-          <SkillCard skill={item.name} />  //skill={item}=passa para o componente SkillCard os valores recebidos de skill
+          <SkillCard
+            skill={item.name}  //skill={item}=passa para o componente SkillCard os valores recebidos de skill
+            onPress={() => handleRemoveSkill(item.id)}  // exclui o item de acordo com o item.id
+          />
         )}
       />
     </SafeAreaView>
