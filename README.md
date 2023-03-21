@@ -8,11 +8,6 @@
  <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=E51C44&labelColor=0A1033" alt="NLW 06" />
 </p>
 
-
-![cover](.github/cover.png?style=flat)
-
-
-
 ## 💻 Projeto
 Aplicativo desenvolvido em React Native, utilizando CLI.
 
@@ -31,7 +26,7 @@ Em seguida, inicie o projeto.
 git clone https://github.com/Felipe-007/MySkills.git
 cd MySkills
 npm i
-expo start
+npx react-native run-android
 ```
 
 ## 📄 Licença
@@ -43,3 +38,7 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 <div align="center">
   <small>Agradecimentos ao professor Rodrigo Gonçalves</small>  
 </div>
+
+<br />
+
+![cover](.github/cover.png?style=flat)
